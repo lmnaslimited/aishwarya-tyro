@@ -1,0 +1,20 @@
+	
+data	
+name	"getdelivery details"
+owner	"Administrator"
+creation	"2025-12-06 14:09:55.801527"
+modified	"2025-12-06 15:03:56.743519"
+modified_by	"Administrator"
+docstatus	0
+idx	0
+script_type	"DocType Event"
+reference_doctype	"Delivery Trip"
+event_frequency	"All"
+doctype_event	"After Insert"
+allow_guest	0
+disabled	0
+script	'deliverydetails=frappe.db.get_all("Delivery Note",filters={"customer":doc.customer},fields=["customer","posting_date","total_qty","total","grand_total","rounted_total","customer_address","Shipping_address_name"])\nfrappe.msgprint(f"delivery note details",deliverydetails)'
+enable_rate_limit	0
+rate_limit_count	5
+rate_limit_seconds	86400
+doctype	"Server Script"
